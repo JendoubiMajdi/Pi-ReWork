@@ -9,6 +9,7 @@ import { UpdatecongeComponent } from 'src/conge/updateconge/updateconge.componen
 import { ListcongeComponent } from 'src/conge/listconge/listconge.component';
 import { AppRoutingModule } from 'src/app.routing.module';
 import { NavbarComponent } from 'src/navbar/navbar.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from 'src/navbar/navbar.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
