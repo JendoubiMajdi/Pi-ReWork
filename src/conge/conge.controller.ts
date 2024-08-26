@@ -24,7 +24,7 @@ async updateConge(@Param('id') id: string, @Body() congeDto: Conge) {
 async deleteConge(@Param('id') id: string) {
     
   await this.ServiceConge.deleteConge(id);
-  return { message: 'Conge deleted successfully' }; // Return a success message
+  return { message: 'Conge deleted successfully' }; 
 }
 
 @Get('/conge')
