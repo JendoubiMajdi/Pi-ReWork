@@ -10,6 +10,8 @@ import { ListcongeComponent } from 'src/conge/listconge/listconge.component';
 import { AppRoutingModule } from 'src/app.routing.module';
 import { NavbarComponent } from 'src/navbar/navbar.component';
 import { NgChartsModule } from 'ng2-charts';
+import { LoginComponent } from 'src/Auth/login/login.component';
+import { SignupComponent } from 'src/Auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NgChartsModule } from 'ng2-charts';
     AddcongeComponent,
     UpdatecongeComponent,
     ListcongeComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
