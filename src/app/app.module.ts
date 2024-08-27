@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AddcongeComponent } from 'src/conge/addconge/addconge.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdatecongeComponent } from 'src/conge/updateconge/updateconge.component';
 import { ListcongeComponent } from 'src/conge/listconge/listconge.component';
 import { AppRoutingModule } from 'src/app.routing.module';
@@ -28,7 +28,8 @@ import { SignupComponent } from 'src/Auth/signup/signup.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

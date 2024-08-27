@@ -7,6 +7,7 @@ import { ListcongeComponent } from "./conge/listconge/listconge.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { SignupComponent } from './Auth/signup/signup.component';
+import { AuthGuard } from "./app/auth.guard";
 
 const ROUTES:Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -14,13 +15,12 @@ const ROUTES:Routes = [
     {path: 'login', component: LoginComponent},
     { path: 'addconge', component: AddcongeComponent },
     { path: 'updateconge/:id', component: UpdatecongeComponent },
-    { path: 'listconge', component: ListcongeComponent }
+    { path: 'listconge', component: ListcongeComponent, canActivate: [AuthGuard] }
 
 ]
 
 @NgModule({
-    declarations: [
-  ],
+    declarations: [],
     imports: [
         CommonModule,
         RouterModule.forRoot(ROUTES),
