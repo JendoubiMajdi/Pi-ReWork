@@ -7,6 +7,7 @@ import * as bcrypt from 'bcrypt'
 import { SignUpDto } from './dto/signup.dto';
 import {LoginDto} from './dto/signin.dto';
 import { JwtService } from '@nestjs/jwt';
+import { UpdateUserDto } from './dto/updateuser.dto';
 
 @Injectable()
 export class AuthService {
@@ -17,7 +18,7 @@ export class AuthService {
     ){}
 
     async signUp(signUpDto: SignUpDto): Promise<{token: string}>{
-        const {nom, prenom, tel, mail, password} = signUpDto
+        const {nom, prenom, tel, mail, password,role='user'} = signUpDto
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -26,9 +27,10 @@ export class AuthService {
             prenom,
             tel,
             mail,
-            password: hashedPassword
+            password: hashedPassword,
+            role
         })
-        const token = this.jwtService.sign({id: user._id})
+        const token = this.jwtService.sign({id: user._id, user: user.role})
         return {token}
     }
 
@@ -44,8 +46,22 @@ export class AuthService {
                 throw new UnauthorizedException('Invalid email or password')
             }
 
-            const token = this.jwtService.sign({id: user._id})
+            const token = this.jwtService.sign({id: user._id, role: user.role})
             return {token}
+        }
+
+        async updateUser(id: string, updateUserDto: UpdateUserDto): Promise<User> {
+            const user = await this.userModel.findById(id);
+            if (!user) {
+                throw new UnauthorizedException('User not found');
+            }
+    
+            if (updateUserDto.password) {
+                updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
+            }
+    
+            Object.assign(user, updateUserDto);
+            return user.save();
         }
     
 }

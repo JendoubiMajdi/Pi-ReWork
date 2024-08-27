@@ -17,8 +17,8 @@ export class User{
    mail: string;
    @Prop()
    password: string;
-   @Prop()
-   Role: string;
+   @Prop({ enum: ['admin', 'user'], default: 'user' })
+   role: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
