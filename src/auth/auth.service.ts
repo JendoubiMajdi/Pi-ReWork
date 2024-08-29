@@ -8,14 +8,24 @@ import { SignUpDto } from './dto/signup.dto';
 import {LoginDto} from './dto/signin.dto';
 import { JwtService } from '@nestjs/jwt';
 import { UpdateUserDto } from './dto/updateuser.dto';
+import { TwilioService } from 'nestjs-twilio';
 
 @Injectable()
 export class AuthService {
     constructor(
         @InjectModel(User.name)
         private userModel: Model<User>,
-        private jwtService: JwtService
+        private jwtService: JwtService,
+        //private twilioService: TwilioService
     ){}
+
+    /*async sendSMS() {
+        return this.twilioService.client.messages.create({
+          body: 'Check your phone for notifications ...',
+          from: '+21627839399',
+          to: '+21627790792',
+        });
+      }*/
 
     async signUp(signUpDto: SignUpDto): Promise<{token: string}>{
         const {nom, prenom, tel, mail, password,role='user'} = signUpDto
@@ -31,6 +41,7 @@ export class AuthService {
             role
         })
         const token = this.jwtService.sign({id: user._id, user: user.role})
+        //this.sendSMS();
         return {token}
     }
 

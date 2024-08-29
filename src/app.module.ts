@@ -4,11 +4,14 @@ import { AppService } from './app.service';
 import { CongeModule } from './conge/conge.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MailerModule } from '@nestjs-modules/mailer';
 import { join } from 'path';
 import { strict } from 'assert';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { AuthModule } from './auth/auth.module';
+import { TwilioModule } from 'nestjs-twilio';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { SmsService } from './sms/sms.service';
+import { SmsController } from './sms/sms.controller';
 
 @Module({
   imports: [CongeModule,
@@ -17,9 +20,9 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.DB_URI),
-    AuthModule,
+    AuthModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, SmsController],
+  providers: [AppService, SmsService],
 })
 export class AppModule {}

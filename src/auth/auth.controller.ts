@@ -4,6 +4,7 @@ import { SignUpDto } from './dto/signup.dto';
 import { LoginDto } from './dto/signin.dto';
 import { User } from 'src/Schemas/Types/User.schema';
 import { UpdateUserDto } from './dto/updateuser.dto';
+import { AppService } from 'src/app.service';
 
 @Controller('auth')
 export class AuthController {

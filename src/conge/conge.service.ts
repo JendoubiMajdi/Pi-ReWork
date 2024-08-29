@@ -2,6 +2,9 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Conge,CongeDocument } from '../schemas/Conge.schema';
 import mongoose, { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { UpdateCongeStatusDto } from 'src/auth/dto/update-conge-status.dto';
+import { TwilioService } from 'nestjs-twilio';
+import { User } from 'src/Schemas/Types/User.schema';
 
 @Injectable()
 export class CongeService{
@@ -20,6 +23,7 @@ export class CongeService{
 
   return enumDocument._id;
   }
+
   
 
   // création d'un congé
@@ -56,6 +60,24 @@ export class CongeService{
   async findById(id: string): Promise<Conge | null> {
     return await this.congeModel.findById(id);
   }
+
+  async updateStatus(id: string, updateCongeStatusDto: UpdateCongeStatusDto): Promise<Conge> {
+    const conge = await this.congeModel.findById(id);
+    if (!conge) {
+        throw new NotFoundException(`Leave with ID ${id} not found`);
+    }
+    console.log('Before update:', conge);
+    conge.statut = updateCongeStatusDto.statut;
+    const updatedConge = await conge.save();
+    console.log('After update:', updatedConge);
+
+    return updatedConge;
+}
+
+async findByUser(userId: string): Promise<Conge[]> {
+  return this.congeModel.find({ userId }).exec();
+}
+
   
   
 
