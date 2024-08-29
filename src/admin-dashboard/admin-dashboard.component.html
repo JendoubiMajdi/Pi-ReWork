@@ -1,0 +1,51 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">#</th>
+        <th scope="col" class="px-6 py-3">Date Debut</th>
+        <th scope="col" class="px-6 py-3">
+          <div class="flex items-center">Date Fin</div>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <div class="flex items-center">Jours Restants</div>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <div class="flex items-center">Statut</div>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <div class="flex items-center">Type</div>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conge of conges" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th scope="row" class="px-6 py-4">{{conges.indexOf(conge) + 1}}</th>
+        <td class="px-6 py-4">{{formatDateToDayMonth(conge.date_debut)}}</td>
+        <td class="px-6 py-4">{{formatDateToDayMonth(conge.date_fin)}}</td>
+        <td class="px-6 py-4">{{calculateRemainingDays(conge.date_debut, conge.date_fin)}}</td>
+        <td class="px-6 py-4">{{conge.statut}}</td>
+        <td class="px-6 py-4">{{conge.type_conge}}</td>
+        <td class="px-6 py-4 text-right">
+          <button (click)="acceptLeave(conge.id)" class="mr-2 font-medium text-green-600 dark:text-green-500 hover:underline">
+            Accept
+          </button>
+          <button (click)="refuseLeave(conge.id)" class="font-medium text-red-600 dark:text-red-500 hover:underline">
+            Refuse
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="width: 500px; height: 300px;">
+  <canvas baseChart
+    [data]="pieChartData"
+    [options]="pieChartOptions"
+    [type]="'pie'">
+  </canvas>
+</div>

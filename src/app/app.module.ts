@@ -12,6 +12,7 @@ import { NavbarComponent } from 'src/navbar/navbar.component';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from 'src/Auth/login/login.component';
 import { SignupComponent } from 'src/Auth/signup/signup.component';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SignupComponent } from 'src/Auth/signup/signup.component';
     ListcongeComponent,
     NavbarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

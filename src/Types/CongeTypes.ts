@@ -9,7 +9,7 @@ export enum STATUT {
   REFUSE = 'REFUSE'
 }
 export class Conge {
-    id!: number;
+    id!: string;
     date_debut!: Date;
     date_fin!: Date;
     jours_restants!: number;

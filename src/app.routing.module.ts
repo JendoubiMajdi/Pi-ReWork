@@ -8,14 +8,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { SignupComponent } from './Auth/signup/signup.component';
 import { AuthGuard } from "./app/auth.guard";
+import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 
 const ROUTES:Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
+    { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard]},
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
-    { path: 'addconge', component: AddcongeComponent },
+    { path: 'addconge', component: AddcongeComponent},
     { path: 'updateconge/:id', component: UpdatecongeComponent },
-    { path: 'listconge', component: ListcongeComponent, canActivate: [AuthGuard] }
+    { path: 'listconge', component: ListcongeComponent}
 
 ]
 

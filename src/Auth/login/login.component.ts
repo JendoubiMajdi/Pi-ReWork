@@ -53,9 +53,9 @@ export class LoginComponent {
           localStorage.setItem('token', token);
 
           if (decodedToken.role === 'admin') {
-            this.router.navigate(['/listconge']);
+            this.router.navigate(['/admin-dashboard']);
           } else {
-            this.router.navigate(['/addconge']);
+            this.router.navigate(['/listconge']);
           }
         },
         error => {

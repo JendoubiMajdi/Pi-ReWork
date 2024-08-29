@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from './AuthService';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,19 @@ export class CongeService {
 
   delete(idConge: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${idConge}`);
+  }
+
+  getAllLeaves(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
+  }
+
+  updateLeaveStatus(id: string, statut: string): Observable<any> {
+    const formattedId = id.toString();
+    return this.http.put(`${this.apiUrl}/${id}/statut`, { statut });
+  }
+
+  findByUserId(userId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/user/${userId}`);
   }
 
 }

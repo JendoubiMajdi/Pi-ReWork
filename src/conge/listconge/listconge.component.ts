@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CongeService } from 'src/Services/conge.service';
 import { Conge, TYPE_CONGE, STATUT } from 'src/Types/CongeTypes';
-import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-listconge',
@@ -14,17 +13,6 @@ export class ListcongeComponent implements OnInit {
   }
 
   conges: Conge[] = [];
-
-  pieChartData: ChartData<'pie'> = {
-    labels: ['Congé Payée', 'Congé Maladie', 'Congé RTT'],
-    datasets: [{
-      data: [0, 0, 0],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-    }]
-  };
-  pieChartOptions: ChartOptions<'pie'> = {
-    responsive: true,
-  };
 
   ngOnInit() {
     this.ServiceConge.findAll().subscribe(data => {
@@ -38,26 +26,7 @@ export class ListcongeComponent implements OnInit {
       });
       //@ts-ignore
       this.conges = newtab
-      this.updateChart();
     });
-  }
-
-  updateChart() {
-    const counts = {
-      [TYPE_CONGE.PAYEE]: 0,
-      [TYPE_CONGE.MALADIE]: 0,
-      [TYPE_CONGE.RTT]: 0
-    };
-
-    this.conges.forEach(conge => {
-      counts[conge.type_conge]++;
-    });
-
-    this.pieChartData.datasets[0].data = [
-      counts[TYPE_CONGE.PAYEE],
-      counts[TYPE_CONGE.MALADIE],
-      counts[TYPE_CONGE.RTT]
-    ];
   }
 
   formatDateToDayMonth(dateString:Date) {
@@ -91,5 +60,6 @@ export class ListcongeComponent implements OnInit {
       }
     );
   }
+
 
 }
