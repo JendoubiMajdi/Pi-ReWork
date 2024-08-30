@@ -109,5 +109,10 @@ export class AdminDashboardComponent implements OnInit{
     });
   }
 
+  printPage() {
+    window.print();
+  }
+
+
 
 }

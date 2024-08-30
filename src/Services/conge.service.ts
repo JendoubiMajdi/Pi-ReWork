@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './AuthService';
@@ -11,6 +11,13 @@ export class CongeService {
   private apiUrl = 'http://localhost:3000/conge';
 
   constructor(private http: HttpClient) {}
+
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token'); // Assuming the JWT token is stored in localStorage
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  }
 
   addConge(Conge: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, Conge);
@@ -43,6 +50,10 @@ export class CongeService {
 
   findByUserId(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/user/${userId}`);
+  }
+
+  getUserConges(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/user/conges`, { headers: this.getAuthHeaders() });
   }
 
 }

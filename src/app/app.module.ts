@@ -23,7 +23,8 @@ import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.comp
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
