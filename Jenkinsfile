@@ -20,6 +20,13 @@ pipeline {
             }
         }
 
+                stage('Install Node.js 14.x') {
+            steps {
+                sh 'nvm install 14 && nvm use 14'
+                sh 'node -v' // Check version after installation
+            }
+        }
+
         stage('Install dependencies') {
             steps {
               dir('backend'){
