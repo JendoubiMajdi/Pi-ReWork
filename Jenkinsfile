@@ -2,32 +2,33 @@ pipeline{
     agent any
 
     stages {
-
         stage('Install dependencies') {
             steps{
-
                 script{
-                    sh('npm install')
+                    dir('backend') {
+                        sh('npm install')
+                    }
                 }
             }
         }
-    
 
         stage('Unit Test'){
             steps{
-
                 script{
-                    sh('npm test')
+                    dir('backend') {
+                        sh('npm test')
+                    }
                 }
             }
         }
 
         stage('Build application'){
             steps{
-
                 script{
-                    sh('npm run build-dev')
-            }
+                    dir('backend') {
+                        sh('npm run build-dev')
+                    }
+                }
             }
         }
     }
