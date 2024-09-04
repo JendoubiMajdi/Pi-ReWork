@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 dir('backend') {
-                    git 'https://github.com/JendoubiMajdi/Pi-ReWork.git'
+                    git branch: 'main', url: 'https://github.com/JendoubiMajdi/Pi-ReWork.git'
                 }
             }
         }
