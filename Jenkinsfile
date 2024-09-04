@@ -25,19 +25,28 @@ pipeline {
             steps {
               dir('backend'){
                     script {
-                        sh('npm install -f')
+                        sh('npm install')
                     }
               }
             }
         }
 
+                stage('Unit Test') {
+            steps {
+              dir('backend'){
+                        script {
+                        sh('npm test')
+                    }            
+              }
+            }
+        }
 
 
         stage('Build application') {
             steps {
               dir('backend'){
                                     script {
-                        sh('npx nest build')
+                        sh('npm run build-dev')
                     }
               }
 
