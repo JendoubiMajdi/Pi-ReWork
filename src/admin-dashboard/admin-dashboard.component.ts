@@ -13,6 +13,7 @@ import { Conge, STATUT, TYPE_CONGE } from 'src/Types/CongeTypes';
 export class AdminDashboardComponent implements OnInit{
 
   conges: Conge[] = [];
+  showPieChart = false;
 
   pieChartData: ChartData<'pie'> = {
     labels: ['Congé Payée', 'Congé Maladie', 'Congé RTT'],
@@ -113,6 +114,8 @@ export class AdminDashboardComponent implements OnInit{
     window.print();
   }
 
-
+  togglePieChart() {
+    this.showPieChart = !this.showPieChart;
+  }
 
 }

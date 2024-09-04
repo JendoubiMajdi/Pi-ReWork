@@ -1,0 +1,68 @@
+/* Main container styling for the form */
+.min-h-screen {
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Form container width */
+.max-w-lg {
+  max-width: 32rem; /* Larger maximum width for the form */
+}
+
+/* Form padding */
+.p-8 {
+  padding: 2rem; /* Larger padding for the form */
+}
+
+/* Input field padding */
+.p-3 {
+  padding: 0.75rem; /* Increase padding inside input fields */
+}
+
+/* Flex container for date inputs */
+.space-x-4 {
+  margin-left: -1rem; /* Remove extra margin between inputs */
+  margin-right: -1rem; /* Remove extra margin between inputs */
+}
+
+/* Button padding */
+.px-6 {
+  padding-left: 1.5rem; /* Increase left padding for button */
+  padding-right: 1.5rem; /* Increase right padding for button */
+}
+.py-3 {
+  padding-top: 0.75rem; /* Increase top padding for button */
+  padding-bottom: 0.75rem; /* Increase bottom padding for button */
+}
+
+/* Form and element color scheme */
+.bg-gray-800 {
+  background-color: #2d3748; /* Dark gray background */
+}
+
+.text-gray-200 {
+  color: #edf2f7; /* Light gray text */
+}
+
+.border-gray-600 {
+  border-color: #4a5568; /* Dark gray border */
+}
+
+.focus:ring-blue-500 {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue ring on focus */
+}
+
+.focus:border-blue-500 {
+  border-color: #3b82f6; /* Blue border on focus */
+}
+
+.bg-blue-700 {
+  background-color: #1d4ed8; /* Blue background */
+}
+
+.bg-blue-800 {
+  background-color: #1e40af; /* Darker blue background on hover */
+}
+
+.focus:ring-blue-300 {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Lighter blue ring on focus */
+}

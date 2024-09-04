@@ -15,4 +15,5 @@ export class Conge {
     jours_restants!: number;
     statut: STATUT = STATUT.EN_ATTENTE
     type_conge!:TYPE_CONGE;
+    user_id!:string;
   }

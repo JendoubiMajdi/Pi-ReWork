@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+import { AuthService } from 'src/Services/AuthService';
 import { CongeService } from 'src/Services/conge.service';
 import { Conge, TYPE_CONGE, STATUT } from 'src/Types/CongeTypes';
 
@@ -9,14 +11,24 @@ import { Conge, TYPE_CONGE, STATUT } from 'src/Types/CongeTypes';
   styleUrls: ['./listconge.component.css'],
 })
 export class ListcongeComponent implements OnInit {
-  constructor(private ServiceConge: CongeService,private router: Router) {
+  constructor(private ServiceConge: CongeService,private router: Router, private authService: AuthService) {
   }
 
   conges: Conge[] = [];
 
   ngOnInit() {
-    this.ServiceConge.findAll().subscribe(data => {
+    /*const token = localStorage.getItem('token');
+    let user_id='';
 
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        user_id = decodedToken.id;
+      } catch (error) {
+        console.error('Failed to decode token', error);
+      }
+    }*/
+    this.ServiceConge.findAll().subscribe(data => {
       let newtab:Conge[] = []
       data.forEach(cong => {
         cong.id = cong._id

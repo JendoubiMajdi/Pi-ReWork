@@ -1,0 +1,24 @@
+/* Adjust form container width */
+.max-w-lg {
+  max-width: 32rem; /* Larger maximum width for the form */
+}
+
+/* Increase form padding */
+.p-8 {
+  padding: 2rem; /* Larger padding for the form */
+}
+
+/* Increase input field padding */
+.p-3 {
+  padding: 0.75rem; /* Increase padding inside input fields */
+}
+
+/* Button padding */
+.px-6 {
+  padding-left: 1.5rem; /* Increase left padding for button */
+  padding-right: 1.5rem; /* Increase right padding for button */
+}
+.py-3 {
+  padding-top: 0.75rem; /* Increase top padding for button */
+  padding-bottom: 0.75rem; /* Increase bottom padding for button */
+}

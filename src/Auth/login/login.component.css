@@ -1,0 +1,46 @@
+/* Global background for the entire page */
+.bg-gray-100 {
+  background-color: #f7fafc; /* Light Gray */
+}
+
+/* Ensure the form background stays dark gray */
+.bg-gray-800 {
+  background-color: #2d3748; /* Darker Gray for form background */
+}
+
+.text-gray-200 {
+  color: #e2e8f0; /* Light Gray for form text */
+}
+
+.border-gray-600 {
+  border-color: #4a5568; /* Darker Border Gray */
+}
+
+.bg-gray-700 {
+  background-color: #4a5568; /* Dark Gray for inputs */
+}
+
+.focus:ring-blue-500 {
+  ring-color: #3b82f6; /* Blue ring color on focus */
+}
+
+.text-red-600 {
+  color: #dc2626; /* Red color for error messages */
+}
+
+/* Button styles */
+.text-white {
+  color: #ffffff; /* White text */
+}
+
+.bg-blue-700 {
+  background-color: #1d4ed8; /* Blue background for buttons */
+}
+
+.bg-blue-800 {
+  background-color: #1e40af; /* Darker Blue for hover effect */
+}
+
+.focus:ring-blue-300 {
+  ring-color: #93c5fd; /* Light Blue ring color on focus */
+}

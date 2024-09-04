@@ -13,6 +13,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from 'src/Auth/login/login.component';
 import { SignupComponent } from 'src/Auth/signup/signup.component';
 import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.comp
     LoginComponent,
     SignupComponent,
     AdminDashboardComponent,
-    
+    FooterComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
