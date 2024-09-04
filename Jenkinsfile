@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any
 
@@ -7,7 +5,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    dir('C:\Users\majdi\Desktop\GitPi\backend\Pi-ReWork\package.json') {
+                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
                         sh('npm install')
                     }
                 }
@@ -17,7 +15,7 @@ pipeline {
         stage('Unit Test') {
             steps {
                 script {
-                    dir('C:\Users\majdi\Desktop\GitPi\backend\Pi-ReWork\package.json') {
+                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
                         sh('npm test')
                     }
                 }
@@ -27,7 +25,7 @@ pipeline {
         stage('Build application') {
             steps {
                 script {
-                    dir('C:\Users\majdi\Desktop\GitPi\backend\Pi-ReWork\package.json') {
+                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
                         sh('npm run build-dev')
                     }
                 }
