@@ -23,7 +23,7 @@ pipeline {
 
         stage('Unit Test') {
             steps {
-                dir('backend/Pi-ReWork') {
+                dir('backend') {
                     script {
                         sh('npm test')
                     }
