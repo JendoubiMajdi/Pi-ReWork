@@ -1,39 +1,45 @@
 pipeline {
     agent any
+
     stages {
+
         stage('Checkout') {
             steps {
-                checkout scm
+                dir('backend/Pi-ReWork'){
+                    git 'https://github.com/JendoubiMajdi/Pi-ReWork.git'
+                }
             }
         }
+        
         stage('Install dependencies') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'npm install'
-                    } else {
-                        bat 'npm install'
-                    }
+
+                dir('backend/Pi-ReWork'){
+                                    script {
+                    sh('npm install')
+                }
                 }
             }
         }
-        stage('Unit Test') {
+
+        stage ('Unit Test') {
             steps {
-                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
-                    bat '''
-                    your-windows-test-command.bat
-                    '''
+
+                dir('backend/Pi-ReWork'){
+                                    script {
+                    sh('npm test')
+                }
                 }
             }
-        }
+    }
+
         stage('Build application') {
             steps {
-                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
-                    bat '''
-                    your-windows-build-command.bat
-                    '''
+
+                dir('backend/Pi-ReWork'){
+                                    script {
+                    sh('npm run build-dev')
+                }
                 }
             }
-        }
-    }
 }
