@@ -14,7 +14,7 @@ pipeline {
 
         stage('Move to Backend Directory') {
             steps {
-              dir('BackEnd'){
+              dir('backend'){
                  git branch: 'BackEnd', url: 'https://github.com/JendoubiMajdi/Pi-ReWork.git' 
               }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
-              dir('BackEnd'){
+              dir('backend'){
                     script {
                         sh('npm install')
                     }
@@ -33,7 +33,7 @@ pipeline {
 
                 stage('Unit Test') {
             steps {
-              dir('BackEnd'){
+              dir('backend'){
                         script {
                         sh('npm test')
                     }            
@@ -44,7 +44,7 @@ pipeline {
 
         stage('Build application') {
             steps {
-              dir('BackEnd'){
+              dir('backend'){
                                     script {
                         sh('npm run build-dev')
                     }
@@ -55,7 +55,7 @@ pipeline {
 
                 stage('SonarQube Analysis') {
             steps {
-              dir('BackEnd'){
+              dir('backend'){
                                     script {
                         def scannerHome = tool 'scanner' 
                         withSonarQubeEnv {
