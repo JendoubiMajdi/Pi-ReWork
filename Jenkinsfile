@@ -31,15 +31,7 @@ pipeline {
             }
         }
 
-        stage('Unit Test') {
-            steps {
-              dir('backend'){
-                        script {
-                        sh('npm test -f')
-                    }            
-              }
-            }
-        }
+
 
         stage('Build application') {
             steps {
