@@ -14,7 +14,7 @@ pipeline {
 
         stage('Move to Backend Directory') {
             steps {
-              dir('backend'){
+              dir('BackEnd'){
                  git branch: 'BackEnd', url: 'https://github.com/JendoubiMajdi/Pi-ReWork.git' 
               }
             }
