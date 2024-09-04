@@ -1,33 +1,35 @@
 pipeline {
     agent any
-
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Install dependencies') {
             steps {
-                script {
-                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
-                        sh('npm install')
-                    }
+                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
+                    bat '''
+                    your-windows-install-command.bat
+                    '''
                 }
             }
         }
-
         stage('Unit Test') {
             steps {
-                script {
-                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
-                        sh('npm test')
-                    }
+                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
+                    bat '''
+                    your-windows-test-command.bat
+                    '''
                 }
             }
         }
-
         stage('Build application') {
             steps {
-                script {
-                    dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') { // Use forward slashes
-                        sh('npm run build-dev')
-                    }
+                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
+                    bat '''
+                    your-windows-build-command.bat
+                    '''
                 }
             }
         }
