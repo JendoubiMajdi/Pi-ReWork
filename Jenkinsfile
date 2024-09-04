@@ -37,7 +37,7 @@ pipeline {
             steps {
               dir('backend'){
                                     script {
-                        sh('npm run build')
+                        sh('nest build')
                     }
               }
 
