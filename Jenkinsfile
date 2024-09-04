@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                dir('backend/Pi-ReWork') {
+                dir('backend') {
                     git 'https://github.com/JendoubiMajdi/Pi-ReWork.git'
                 }
             }
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
-                dir('backend/Pi-ReWork') {
+                dir('backend') {
                     script {
                         sh('npm install')
                     }
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build application') {
             steps {
-                dir('backend/Pi-ReWork') {
+                dir('backend') {
                     script {
                         sh('npm run build-dev')
                     }
