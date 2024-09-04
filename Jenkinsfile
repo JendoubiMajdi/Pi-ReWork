@@ -8,10 +8,12 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                dir('C:/Users/majdi/Desktop/GitPi/backend/Pi-ReWork') {
-                    bat '''
-                    your-windows-install-command.bat
-                    '''
+                script {
+                    if (isUnix()) {
+                        sh 'npm install'
+                    } else {
+                        bat 'npm install'
+                    }
                 }
             }
         }
